@@ -11,6 +11,7 @@ import com.taobao.sophix.SophixManager;
 import com.taobao.sophix.listener.PatchLoadStatusListener;
 
 /**
+ *快速接入方式
  * Created by liubaoxing on 2018/3/13 10:49<br/>
  * Email:liubaoxinggo@foxmail.com<br/>
  */
@@ -25,12 +26,13 @@ public class TApp extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        initSophix();
+        //initSophix();
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.d(TAG,"【TApp  onCreate】");
         Utils.init(this);
         //queryAndLoadNewPatch不可放在attachBaseContext 中，否则无网络权限，建议放在后面任意时刻，如onCreate中;
         //该方法主要用于查询服务器是否有新的可用补丁,只会下载补丁版本号比当前应用存在的补丁版本号高的补丁
